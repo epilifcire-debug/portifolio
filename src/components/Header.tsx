@@ -6,6 +6,7 @@ const logo = { url: "/brand/logo-efc.png" };
 const NAV = [
   { to: "/", label: "Início", hash: undefined },
   { to: "/projects", label: "Projetos", hash: undefined },
+  { to: "/vitrine", label: "Vitrine", hash: undefined },
   { to: "/", label: "Soluções", hash: "solucoes" },
   { to: "/about", label: "Sobre", hash: undefined },
   { to: "/technologies", label: "Tecnologias", hash: undefined },

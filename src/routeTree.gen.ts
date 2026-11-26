@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TechnologiesRouteImport } from './routes/technologies'
+import { Route as VitrineRouteImport } from './routes/vitrine'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as ArticlesSlugRouteImport } from './routes/articles/$slug'
@@ -62,6 +63,11 @@ const TechnologiesRoute = TechnologiesRouteImport.update({
   path: '/technologies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VitrineRoute = VitrineRouteImport.update({
+  id: '/vitrine',
+  path: '/vitrine',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/health': typeof HealthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
+  '/vitrine': typeof VitrineRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/articles/$slug': typeof ArticlesSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/health': typeof HealthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
+  '/vitrine': typeof VitrineRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/articles/$slug': typeof ArticlesSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/health': typeof HealthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
+  '/vitrine': typeof VitrineRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/articles/$slug': typeof ArticlesSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/health'
     | '/sitemap.xml'
     | '/technologies'
+    | '/vitrine'
     | '/admin'
     | '/articles/$slug'
     | '/projects/$slug'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/health'
     | '/sitemap.xml'
     | '/technologies'
+    | '/vitrine'
     | '/admin'
     | '/articles/$slug'
     | '/projects/$slug'
@@ -171,6 +182,7 @@ export interface FileRouteTypes {
     | '/health'
     | '/sitemap.xml'
     | '/technologies'
+    | '/vitrine'
     | '/_authenticated/admin'
     | '/articles/$slug'
     | '/projects/$slug'
@@ -187,6 +199,7 @@ export interface RootRouteChildren {
   HealthRoute: typeof HealthRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologiesRoute: typeof TechnologiesRoute
+  VitrineRoute: typeof VitrineRoute
   ArticlesSlugRoute: typeof ArticlesSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TechnologiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vitrine': {
+      id: '/vitrine'
+      path: '/vitrine'
+      fullPath: '/vitrine'
+      preLoaderRoute: typeof VitrineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
       path: '/admin'
@@ -309,6 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   HealthRoute: HealthRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologiesRoute: TechnologiesRoute,
+  VitrineRoute: VitrineRoute,
   ArticlesSlugRoute: ArticlesSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
