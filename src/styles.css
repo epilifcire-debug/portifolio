@@ -1,0 +1,249 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EFC Tecnologia design system.
+ * Black / graphite base, metallic gold primary, metallic silver secondary.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-silver: var(--silver);
+  --color-graphite: var(--graphite);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* EFC official palette (DESIGN.md §3) */
+  --efc-bg: #050505;
+  --efc-bg-deep: #000000;
+  --efc-bg-soft: #0a0a0a;
+  --efc-surface: #0d0d0d;
+  --efc-surface-raised: #121212;
+  --efc-gold: #d6a928;
+  --efc-gold-bright: #f2c94c;
+  --efc-gold-soft: #b88a18;
+  --efc-gold-muted: #806315;
+  --efc-silver: #c8cdd2;
+  --efc-silver-bright: #f0f2f4;
+  --efc-silver-muted: #858b91;
+
+  --background: var(--efc-bg);
+  --foreground: #f5f5f5;
+  --card: var(--efc-surface);
+  --card-foreground: #f5f5f5;
+  --popover: var(--efc-surface-raised);
+  --popover-foreground: #f5f5f5;
+  --primary: var(--efc-gold);
+  --primary-foreground: #0a0a0a;
+  --gold: var(--efc-gold);
+  --gold-deep: var(--efc-gold-soft);
+  --silver: var(--efc-silver);
+  --graphite: var(--efc-surface-raised);
+  --secondary: var(--efc-surface-raised);
+  --secondary-foreground: #f0f2f4;
+  --muted: #121212;
+  --muted-foreground: #b8b8b8;
+  --accent: #1a1508;
+  --accent-foreground: #f2c94c;
+  --destructive: #d85c5c;
+  --destructive-foreground: #f5f5f5;
+  --border: rgba(214, 169, 40, 0.22);
+  --border-hover: rgba(242, 201, 76, 0.62);
+  --border-neutral: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: var(--efc-gold-bright);
+
+  --success: #48b879;
+  --warning: #e5a93d;
+  --info: #6ea8d9;
+
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --gradient-gold: linear-gradient(135deg, #806315 0%, #d6a928 48%, #f2c94c 100%);
+  --gradient-silver: linear-gradient(135deg, #858b91 0%, #f0f2f4 50%, #c8cdd2 100%);
+  --shadow-gold: 0 12px 40px -16px rgba(214, 169, 40, 0.34);
+  --shadow-panel: 0 20px 60px -30px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Light mode: graphite on warm paper, gold retained */
+.light {
+  --background: oklch(0.97 0.004 85);
+  --foreground: oklch(0.2 0.006 85);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.006 85);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.006 85);
+  --primary: oklch(0.58 0.11 78);
+  --primary-foreground: oklch(0.98 0.004 85);
+  --gold: oklch(0.58 0.11 78);
+  --gold-deep: oklch(0.48 0.1 74);
+  --silver: oklch(0.55 0.005 250);
+  --graphite: oklch(0.85 0.004 90);
+  --secondary: oklch(0.93 0.004 85);
+  --secondary-foreground: oklch(0.25 0.006 85);
+  --muted: oklch(0.93 0.004 85);
+  --muted-foreground: oklch(0.45 0.008 85);
+  --accent: oklch(0.92 0.03 85);
+  --accent-foreground: oklch(0.3 0.06 78);
+  --border: oklch(0.86 0.008 85);
+  --input: oklch(0.88 0.008 85);
+  --ring: oklch(0.58 0.11 78);
+  --shadow-panel: 0 20px 60px -30px oklch(0.5 0.02 85 / 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+}
+
+/* Padrão EFCSYS: sem texto em degradê. Destaque em dourado sólido. */
+@utility text-gold-metal {
+  color: var(--efc-gold-bright);
+}
+
+@utility text-silver-metal {
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Botão primário: dourado sólido, alto contraste (DESIGN.md §19). */
+@utility bg-gold-metal {
+  background: var(--efc-gold);
+}
+
+@utility panel {
+  background: color-mix(in oklab, var(--card) 82%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(6px);
+}
+
+@utility panel-hover {
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  &:hover {
+    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+  }
+}
+
+@utility page-enter {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes circuit-dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --- Movimento (DESIGN.md §8) --- */
+@keyframes efc-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility marquee-track {
+  animation: efc-marquee 38s linear infinite;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s var(--ease-emphasis),
+    transform 0.6s var(--ease-emphasis);
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

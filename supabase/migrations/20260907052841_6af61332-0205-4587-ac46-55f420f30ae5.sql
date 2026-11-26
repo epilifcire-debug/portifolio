@@ -1,0 +1,1 @@
+ALTER TABLE public.contact_settings ADD COLUMN IF NOT EXISTS calendly text NOT NULL DEFAULT '';

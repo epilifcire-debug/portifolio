@@ -1,0 +1,4 @@
+CREATE POLICY "Anyone can view project media files" ON storage.objects FOR SELECT USING (bucket_id = 'project-media');
+CREATE POLICY "Admins can upload project media" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'project-media' AND public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "Admins can update project media" ON storage.objects FOR UPDATE TO authenticated USING (bucket_id = 'project-media' AND public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "Admins can delete project media" ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'project-media' AND public.has_role(auth.uid(), 'admin'));
